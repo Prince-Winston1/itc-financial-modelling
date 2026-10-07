@@ -9,11 +9,11 @@ An interactive Microsoft Excel workspace combining a full Discounted Cash Flow (
  
 **Motive:** Most single-method valuations understate the value of diversified conglomerates by forcing one blended growth/risk profile onto structurally different businesses. This project builds two independent, fully audited valuation methods — DCF and SOTP — to test that hypothesis directly on ITC, then reconciles the gap between them rather than picking one and ignoring the other.
  
-**DCF (consolidated cash-flow basis):** Intrinsic value of **₹223.60/share** against a market price of ₹268 — the stock trades at a **1.20x premium** to a whole-company DCF view.
+**DCF (consolidated cash-flow basis):** Intrinsic value of **₹267.41/share** against a market price of ₹262.75 — the stock trades at a **~1.7% discount** (0.98x) to a whole-company DCF view, effectively in line with fair value.
  
-**SOTP (segment-by-segment basis):** Intrinsic value of **₹455.6/share** against the same ₹268 market price — the stock trades at a **~41% discount** when each segment is valued independently against its own industry peers.
+**SOTP (segment-by-segment basis):** Intrinsic value of **₹455.6/share** against the same ₹262.75 market price — the stock trades at a **~42.3% discount** when each segment is valued independently against its own industry peers.
  
-**Why the two methods disagree — and what that reveals:** ITC's Cigarettes segment (mature, ~57% EBITDA margin) and FMCG–Others segment (early-stage, ~10% EBITDA margin, per the company's own segment disclosure citing ongoing brand-building and gestation costs) have fundamentally different growth and risk profiles. A single consolidated DCF cannot capture that divergence — it averages it away. The SOTP is built specifically to isolate it, and the resulting ~2x gap between the two methods is read as a **conglomerate discount signal**: evidence the market may be pricing ITC's individual businesses well below what they'd be worth as standalone, independently-valued entities.
+**Why the two methods disagree — and what that reveals:** ITC's Cigarettes segment (mature, ~57% EBITDA margin) and FMCG–Others segment (early-stage, ~10% EBITDA margin, per the company's own segment disclosure citing ongoing brand-building and gestation costs) have fundamentally different growth and risk profiles. A single consolidated DCF cannot capture that divergence — it averages it away. The SOTP is built specifically to isolate it, and the resulting ~1.7x gap between the two methods is read as a **conglomerate discount signal**: evidence the market may be pricing ITC's individual businesses well below what they'd be worth as standalone, independently-valued entities.
  
 ---
  
@@ -27,7 +27,7 @@ An interactive Microsoft Excel workspace combining a full Discounted Cash Flow (
 | Paperboards | EBITDA | Median of 3-peer EV/EBITDA | 8.3x | 9,834.7 |
 | Others | — | Net segment assets | — | 159.7 |
  
-Less unallocated corporate costs (capitalized as a perpetuity, not a single-year deduction) → **Total Enterprise Value: ₹5,31,845.1 Cr** → bridged to **₹455.6/share** via the same Cash/Investments/Debt figures used in the DCF, ensuring both valuations share a single balance-sheet date.
+Less unallocated corporate costs (capitalized as a perpetuity, not a single-year deduction) → **Total Enterprise Value: ₹5,31,843.3 Cr** → bridged to **₹455.6/share** via the same Cash/Investments/Debt figures used in the DCF, ensuring both valuations share a single balance-sheet date.
  
 **Methodology choices worth noting:**
 - **EV/Sales over EV/EBITDA for FMCG–Others and Agri** — both segments have currently-depressed margins driven by reinvestment/commodity-cycle effects rather than weak underlying economics, per the company's own segment disclosures. Applying a mature peer's EV/EBITDA multiple to a deliberately suppressed EBITDA base would understate these segments.
@@ -43,15 +43,15 @@ FCFF is projected over a 5-year explicit forecast with a linearly fading growth 
  
 | Terminal Growth \ WACC | 9.47% | 9.97% | 10.47%* | 10.97% | 11.47% |
 |---|---|---|---|---|---|
-| 2.00% | 230.7 | 223.6 | 217.2 | 211.6 | 206.6 |
-| 2.50%* | 238.9 | 230.7 | **223.6*** | 217.2 | 211.6 |
-| 3.00% | 248.3 | 238.9 | 230.7 | 223.6 | 217.2 |
-| 3.50% | 259.4 | 248.3 | 238.9 | 230.7 | 223.6 |
-| 4.00% | 272.4 | 259.4 | 248.3 | 238.9 | 230.7 |
+| 2.00% | 277.5 | 267.4 | 258.5 | 250.6 | 243.5 |
+| 2.50%* | 289.1 | 277.5 | **267.4*** | 258.5 | 250.6 |
+| 3.00% | 302.4 | 289.1 | 277.5 | 267.4 | 258.5 |
+| 3.50% | 318.0 | 302.4 | 289.1 | 277.5 | 267.4 |
+| 4.00% | 336.4 | 318.0 | 302.4 | 289.1 | 277.5 |
  
-Across every WACC/terminal-growth combination tested, output stays within ₹206.6–₹272.4/share — a fairly tight, well-bounded range.
+Across every WACC/terminal-growth combination tested, output stays within ₹243.5–₹336.4/share — a bounded range.
  
-**A documented conservatism check:** the model's cross-check against the segment note shows Cigarettes' own external revenue grew 13.7% in FY2026 — closely matching the DCF's starting growth assumption (13.79%), suggesting the initial growth rate isn't arbitrary. Separately, the `Intrinsic Growth` sheet flags that the FY25 ITC Hotels demerger depressed the historical growth calculation used to derive this starting rate (clean continuing-operations growth: 15.64% vs. 13.79% used) — a documented reason the DCF may be somewhat conservative.
+**A documented robustness check:** the starting growth rate (13.79%) is the five-year median of ROIC × reinvestment-rate growth. The `Intrinsic Growth` sheet flags that the FY25 ITC Hotels demerger distorted that year's invested capital and growth calculation (21.2%, an outlier). Excluding FY25, the four-year median is 13.65% — only ~0.14pp below the rate used — so the starting growth assumption is not sensitive to the demerger-affected year.
  
 ---
  
@@ -65,9 +65,9 @@ Across every WACC/terminal-growth combination tested, output stays within ₹206
  
 ## Operational Diagnostics (Mar-26 Baseline)
  
-- **DuPont ROE:** 25.95% (Net Margin: 23.45% | Asset Turnover: 43.42% | Equity Multiplier: 2.55x)
+- **DuPont ROE:** 25.95% (Net Margin: 23.45% | Asset Turnover: 86.84% | Equity Multiplier: 1.27x)
 - **Altman Z-Score:** 13.17x (Safe "Green Zone" > 2.99x — strong balance sheet, low insolvency risk)
-- **Value at Risk:** Historical Simulation 95% CI = 2.81% (₹7.78/share); Monte Carlo 95% CI = 3.18% (₹8.81/share). Historical Simulation VaR is used as the primary measure over Parametric VaR, since it reflects the actual (potentially skewed/fat-tailed) return distribution rather than assuming normality.
+- **Value at Risk:** Historical Simulation 95% CI = 2.81% (₹7.39/share). Historical Simulation VaR is used as the primary measure over Parametric VaR, since it reflects the actual (potentially skewed/fat-tailed) return distribution rather than assuming normality.
 ---
  
 ## Quick User Guidelines
