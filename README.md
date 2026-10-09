@@ -55,14 +55,14 @@ Five-year explicit FCFF forecast with growth fading linearly from 13.79% to a 2.
 
 | Terminal Growth \ WACC | 9.47% | 9.97% | 10.47% | 10.97% | 11.47% |
 |---|---|---|---|---|---|
-| 2.00% | 258.3 | 248.2 | 239.3 | 231.4 | 224.3 |
-| 2.50% | 269.9 | 258.3 | **248.2** | 239.3 | 231.4 |
-| 3.00% | 283.2 | 269.9 | 258.3 | 248.2 | 239.3 |
-| 3.50% | 298.8 | 283.2 | 269.9 | 258.3 | 248.2 |
-| 4.00% | 317.2 | 298.8 | 283.2 | 269.9 | 258.3 |
+| 2.00% | 263.7 | 249.1 | 236.2 | 224.8 | 214.6 |
+| 2.50% | 279.4 | 262.7 | **248.2** | 235.4 | 224.0 |
+| 3.00% | 297.5 | 278.4 | 261.8 | 247.4 | 234.6 |
+| 3.50% | 318.7 | 296.4 | 277.4 | 260.9 | 246.5 |
+| 4.00% | 343.7 | 317.5 | 295.4 | 276.4 | 260.0 |
 
 **Things worth knowing:**
-- Terminal value is ~69% of DCF enterprise value, so the result is sensitive to WACC and terminal growth (range above: ₹216.7–₹332.3).
+- Terminal value is ~69% of DCF enterprise value, so the result is sensitive to WACC and terminal growth (range above: ₹214.6–₹343.7).
 - The 13.79% starting growth is the five-year median of ROIC × reinvestment-rate growth. FY25 (ITC Hotels demerger year) inflated that year's figure (21.2%); excluding it, the median is 13.65%, so the result is not sensitive to the treatment.
 - Non-operating investments of ₹38,128 Cr (current and non-current) are added back after discounting, since the related income is excluded from EBIT.
 
