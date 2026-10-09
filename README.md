@@ -1,84 +1,99 @@
 # Corporate Financial Model & Analytical Dashboard: ITC Ltd.
- 
-An interactive Microsoft Excel workspace combining a full Discounted Cash Flow (DCF) valuation with a Sum-of-the-Parts (SOTP) valuation, cross-checked against each other, plus core credit-risk and operational diagnostics — built for ITC Ltd., a diversified conglomerate spanning Cigarettes, FMCG, Agri Business, and Paperboards & Packaging.
 
-[Download the PDF here](itc_financial_model.pdf) | [Download the full Excel model](itc_financial_model.xlsx) 
+[View the PDF summary](itc_financial_model.pdf) | [Download the full Excel model](itc_financial_model.xlsx)
+
+An Excel workspace combining a Discounted Cash Flow (DCF) valuation with a Sum-of-the-Parts (SOTP) valuation of ITC Ltd., cross-checked against each other, plus credit-risk and operational diagnostics. ITC is a diversified conglomerate spanning Cigarettes, FMCG, Agri Business, and Paperboards & Packaging.
+
 ---
- 
+
 ## Project Motive & Key Findings
- 
-**Motive:** Most single-method valuations understate the value of diversified conglomerates by forcing one blended growth/risk profile onto structurally different businesses. This project builds two independent, fully audited valuation methods — DCF and SOTP — to test that hypothesis directly on ITC, then reconciles the gap between them rather than picking one and ignoring the other.
- 
-**DCF (consolidated cash-flow basis):** Intrinsic value of **₹267.41/share** against a market price of ₹262.75 — the stock trades at a **~1.7% discount** (0.98x) to a whole-company DCF view, effectively in line with fair value.
- 
-**SOTP (segment-by-segment basis):** Intrinsic value of **₹455.6/share** against the same ₹262.75 market price — the stock trades at a **~42.3% discount** when each segment is valued independently against its own industry peers.
- 
-**Why the two methods disagree — and what that reveals:** ITC's Cigarettes segment (mature, ~57% EBITDA margin) and FMCG–Others segment (early-stage, ~10% EBITDA margin, per the company's own segment disclosure citing ongoing brand-building and gestation costs) have fundamentally different growth and risk profiles. A single consolidated DCF cannot capture that divergence — it averages it away. The SOTP is built specifically to isolate it, and the resulting ~1.7x gap between the two methods is read as a **conglomerate discount signal**: evidence the market may be pricing ITC's individual businesses well below what they'd be worth as standalone, independently-valued entities.
- 
+
+**Motive:** A single blended valuation can mis-price a conglomerate by forcing one growth/risk profile onto structurally different businesses. This project builds two independently documented methods, DCF and SOTP, and then reconciles the gap between them.
+
+| Method | Value / Share | Market Price (30.09.2026) | Price ÷ Value |
+|---|---|---|---|
+| DCF (consolidated cash flows) | ₹248.2 | ₹262.75 | 1.06x (~5.9% premium) |
+| SOTP (segment-by-segment) | ₹414.6 | ₹262.75 | 0.63x (~36.6% discount) |
+
+**Reading the gap:** SOTP is ~1.67x the DCF. ITC's Cigarettes segment (mature, ~57% EBITDA margin) and FMCG–Others segment (early-stage, ~10% EBITDA margin, with brand-building and gestation costs per the company's segment note) have very different growth and risk profiles. One blended DCF averages that difference away; the SOTP isolates it. The result is read as a possible conglomerate-discount signal, not as proof: the SOTP leans heavily on a single-peer Cigarette multiple (see limitations).
+
 ---
- 
+
 ## Sum-of-the-Parts (SOTP) Breakdown
- 
+
 | Segment | Metric Used | Multiple Source | Multiple | Segment EV (₹ Cr) |
 |---|---|---|---|---|
-| Cigarettes | EBITDA | Godfrey Phillips (EV/EBITDA) | 16.1x | 3,42,454.2 |
+| Cigarettes | EBITDA | Godfrey Phillips (16.1x) less 15% discount | 13.7x | 2,91,086.1 |
 | FMCG–Others | Total Revenue | Median of 7-peer EV/Sales | 7.6x | 1,84,487.3 |
 | Agri Business | External Revenue | AWL Agri Business (EV/Sales) | 0.3x | 3,694.1 |
 | Paperboards | EBITDA | Median of 3-peer EV/EBITDA | 8.3x | 9,834.7 |
-| Others | — | Net segment assets | — | 159.7 |
- 
-Less unallocated corporate costs (capitalized as a perpetuity, not a single-year deduction) → **Total Enterprise Value: ₹5,31,843.3 Cr** → bridged to **₹455.6/share** via the same Cash/Investments/Debt figures used in the DCF, ensuring both valuations share a single balance-sheet date.
- 
-**Methodology choices worth noting:**
-- **EV/Sales over EV/EBITDA for FMCG–Others and Agri** — both segments have currently-depressed margins driven by reinvestment/commodity-cycle effects rather than weak underlying economics, per the company's own segment disclosures. Applying a mature peer's EV/EBITDA multiple to a deliberately suppressed EBITDA base would understate these segments.
-- **External revenue only for Agri** — excludes inter-segment leaf-tobacco transfers to Cigarettes, since internal transfer volume isn't comparable to an external peer's market-facing revenue.
-- **Outlier peer exclusion** — Andhra Paper was excluded from the Paperboards comp set; its elevated multiple reflects temporarily depressed earnings, not a genuine valuation premium.
-**Stress-tested limitation, stated plainly:** Cigarettes and Agri Business each rest on a *single* listed peer rather than a median. Sensitivity testing shows this matters a great deal for one and not at all for the other — a ±30% swing in the Cigarette multiple moves the SOTP output by ~₹80–90/share, while an identical swing in the Agri multiple moves it by less than ₹1/share, simply because Cigarettes is ~93x the size of Agri in this model. Even in the most conservative Cigarette-multiple scenario tested, the SOTP still implies a discount to market price — the *direction* of the finding is robust even where the exact magnitude is sensitive to one assumption.
- 
+| Others | n/a | Net segment assets | - | 159.7 |
+
+Sum of segment EVs ₹4,89,261.9 Cr, less unallocated corporate costs capitalised as a perpetuity (₹8,786.7 Cr), bridged to equity with the same cash, investments, debt and share count as the DCF → **₹414.6/share**.
+
+**Methodology choices:**
+- **EV/Sales for FMCG–Others and Agri:** both have currently depressed margins (reinvestment; commodity cycle), so applying a mature peer's EV/EBITDA to current EBITDA would understate them.
+- **External revenue only for Agri:** excludes inter-segment leaf-tobacco transfers to Cigarettes.
+- **15% discount on the Cigarette peer multiple:** Godfrey Phillips is a far smaller company than ITC's cigarette business, and Cigarettes carries excise/tax-policy risk. The discount is an explicit input (`Master Input Center`) and is a judgment call; ITC's own EV/EBITDA is ~10.9x for reference.
+- **Peer exclusions:** Andhra Paper (multiple inflated by temporarily depressed earnings); alcohol, bottling and tea/coffee-heavy names (no equivalent business in FMCG–Others).
+
+**Limitations, stated plainly:** Cigarettes (~60% of segment value) rests on a single listed peer, and Agri does too. Each 1x change in the Cigarette multiple moves SOTP value by ~₹17/share:
+
+| Cigarette multiple | SOTP value / share | Discount to market price |
+|---|---|---|
+| 10.9x (ITC's own EV/EBITDA) | ~₹368 | ~29% |
+| 13.7x (base case) | ₹414.6 | ~37% |
+| 16.1x (peer multiple, no discount) | ~₹456 | ~42% |
+
+The Agri multiple is immaterial (<₹1/share), and WACC/tax-rate changes move SOTP by under 1%. Across this range the SOTP stays well above the market price, but its size depends on one peer and one judgment-based discount.
+
 ---
- 
-## DCF Valuation & Sensitivity Matrix
- 
-FCFF is projected over a 5-year explicit forecast with a linearly fading growth rate (13.79% → 2.50% terminal), discounted at a WACC of 10.47% anchored to management's long-term target capital structure.
- 
-| Terminal Growth \ WACC | 9.47% | 9.97% | 10.47%* | 10.97% | 11.47% |
+
+## DCF Valuation & Sensitivity
+
+Five-year explicit FCFF forecast with growth fading linearly from 13.79% to a 2.50% terminal rate, reinvestment rate fading from 18.2% to 10%, mid-year discounting, WACC ≈ 10.47%. Terminal value is Year-5 FCFF × (1 + g) ÷ (WACC − g), discounted once.
+
+| Terminal Growth \ WACC | 9.47% | 9.97% | 10.47% | 10.97% | 11.47% |
 |---|---|---|---|---|---|
-| 2.00% | 277.5 | 267.4 | 258.5 | 250.6 | 243.5 |
-| 2.50%* | 289.1 | 277.5 | **267.4*** | 258.5 | 250.6 |
-| 3.00% | 302.4 | 289.1 | 277.5 | 267.4 | 258.5 |
-| 3.50% | 318.0 | 302.4 | 289.1 | 277.5 | 267.4 |
-| 4.00% | 336.4 | 318.0 | 302.4 | 289.1 | 277.5 |
- 
-Across every WACC/terminal-growth combination tested, output stays within ₹243.5–₹336.4/share — a bounded range.
- 
-**A documented robustness check:** the starting growth rate (13.79%) is the five-year median of ROIC × reinvestment-rate growth. The `Intrinsic Growth` sheet flags that the FY25 ITC Hotels demerger distorted that year's invested capital and growth calculation (21.2%, an outlier). Excluding FY25, the four-year median is 13.65% — only ~0.14pp below the rate used — so the starting growth assumption is not sensitive to the demerger-affected year.
- 
+| 2.00% | 258.3 | 248.2 | 239.3 | 231.4 | 224.3 |
+| 2.50% | 269.9 | 258.3 | **248.2** | 239.3 | 231.4 |
+| 3.00% | 283.2 | 269.9 | 258.3 | 248.2 | 239.3 |
+| 3.50% | 298.8 | 283.2 | 269.9 | 258.3 | 248.2 |
+| 4.00% | 317.2 | 298.8 | 283.2 | 269.9 | 258.3 |
+
+**Things worth knowing:**
+- Terminal value is ~69% of DCF enterprise value, so the result is sensitive to WACC and terminal growth (range above: ₹216.7–₹332.3).
+- The 13.79% starting growth is the five-year median of ROIC × reinvestment-rate growth. FY25 (ITC Hotels demerger year) inflated that year's figure (21.2%); excluding it, the median is 13.65%, so the result is not sensitive to the treatment.
+- Non-operating investments of ₹38,128 Cr (current and non-current) are added back after discounting, since the related income is excluded from EBIT.
+
 ---
- 
+
 ## Workbook Architecture
- 
-- **Valuation & Capital Costs:** `DCF` (FCFF projections & dynamic sensitivity matrices) | `WACC` (CAPM calculations) | `Intrinsic Growth` | `Comps Beta Calculation` (peer group regressions)
-- **Sum-of-the-Parts:** `SOTP - Valuation` (segment-by-segment calculation, bridge, methodology note) | `SOTP - Segment Data` (raw segment financials, Annual Report Note 30)
-- **Diagnostics & Risk:** `VAR` (95% & 99% Value at Risk, Historical Simulation & Monte Carlo) | `Altman's Z Score` (credit health) | `DuPont Analysis` (3-stage ROE breakdown) | `Ratio Analysis`
-- **Master Feeds:** `Master Input Center` (global variables, single source of truth for all assumptions) | `Common Size Statements` | `Historicals FS` | `Comps Data` (18-company peer set, tagged by SOTP segment for auditable median calculations)
+
+- **Valuation & Capital Costs:** `DCF` | `WACC` | `Intrinsic Growth` | `Comps Beta Calculation`
+- **Sum-of-the-Parts:** `SOTP - Valuation` (calculation, bridge, methodology note) | `SOTP - Segment Data` (Annual Report Note 30)
+- **Diagnostics & Risk:** `VAR` | `Altman's Z Score` | `DuPont Analysis` | `Ratio Analysis` | `Common Size Statements`
+- **Inputs & Data:** `Master Input Center` (single source for assumptions, including the valuation-date share price and SOTP multiple discounts) | `Comps Data` (18-peer set, tagged by SOTP segment) | `Historicals FS` | raw data sheets
+
 ---
- 
+
 ## Operational Diagnostics (Mar-26 Baseline)
- 
-- **DuPont ROE:** 25.95% (Net Margin: 23.45% | Asset Turnover: 86.84% | Equity Multiplier: 1.27x)
-- **Altman Z-Score:** 13.17x (Safe "Green Zone" > 2.99x — strong balance sheet, low insolvency risk)
-- **Value at Risk:** Historical Simulation 95% CI = 2.81% (₹7.39/share). Historical Simulation VaR is used as the primary measure over Parametric VaR, since it reflects the actual (potentially skewed/fat-tailed) return distribution rather than assuming normality.
+
+- **DuPont ROE:** 25.95% (Net Margin 23.45% × Asset Turnover 86.84% × Equity Multiplier 1.27x, on average total assets)
+- **Altman Z-Score:** 13.17x (above the 2.99x "safe" threshold)
+- **Value at Risk (₹262.75 base):** Historical Simulation 95% = 2.81% (₹7.39/share); Monte Carlo 95% ≈ 3.1% (≈₹8.3/share; varies slightly with each recalculation). Historical Simulation is the primary measure because it reflects the observed return distribution rather than assuming normality.
+
 ---
- 
-## Quick User Guidelines
- 
-1. **Input Isolation:** Make all strategic adjustments inside `Master Input Center` only — every downstream sheet (DCF, WACC, SOTP) references it, so a single assumption change flows through consistently.
-2. **Data Precision:** Intermediate formulas use unrounded floating-point precision; check the formula bar to reconcile minor rounding differences against displayed values.
-3. **Consistency by design:** Debt, Cash, Investments, and Shares Outstanding are linked once (in `DCF`) and referenced identically in `SOTP - Valuation`, ensuring both valuation methods share the same balance-sheet date and never silently diverge on a shared input.
+
+## Notes for Users
+
+1. Change assumptions in `Master Input Center` only; DCF, WACC, SOTP and VaR all reference it.
+2. Debt, cash, investments and shares are linked once and shared by both valuations, so both use the same balance-sheet date (FY2026). WACC uses a market-snapshot debt figure for capital-structure weights, documented on the WACC sheet.
+3. Intermediate cells use full precision; displayed values are rounded.
+
 ---
- 
+
 ## Disclaimers & Sources
- 
-- *Educational purpose only. Does not constitute financial or investment advice.*
-- *Segment financials: ITC Ltd. FY2026 Annual Report, Note 30 (Segment Reporting). Historical financials: Screener.in. Market pricing & peer betas: Yahoo Finance / Screener.in.*
-- *Independent educational analysis; not affiliated with or endorsed by ITC Ltd.*
+
+- *Educational purpose only; not financial or investment advice. Independent analysis, not affiliated with or endorsed by ITC Ltd.*
+- *Segment financials: ITC Ltd. FY2026 Annual Report, Note 30. Historical financials: Screener.in. Market data and peer betas: Yahoo Finance / Screener.in / Bloomberg adjusted-beta weights.*
